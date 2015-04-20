@@ -1,0 +1,26 @@
+= Personal
+	- ID
+	- Namn
+	# getNamn
+	# setNamn
+	ärvs av:
+	= Chef
+		- Avdelning
+		- Tillståndsnivå = 1
+	= Personal
+		- Avdelning
+		- Tillståndsnivå = 2
+	= Sköterska
+		- Avdelning
+		- Tillståndsnivå = 3
+
+= Aktivitet, ärvs av:
+	- 
+
+= Vårdtagare
+	- 
+
+
+"=" = klasser
+"-" = egenskaper/variabler
+"#" = metoder
