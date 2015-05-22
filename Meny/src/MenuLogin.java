@@ -14,6 +14,7 @@ public class MenuLogin extends javax.swing.JFrame {
      * Creates new form MenyGUI
      */
     public MenuLogin() {
+        
         initComponents();
     }
 
@@ -35,6 +36,7 @@ public class MenuLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("InfoSys");
+        setResizable(false);
 
         usernameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -45,8 +47,6 @@ public class MenuLogin extends javax.swing.JFrame {
         userLabel.setText("Användarnamn:");
 
         passLabel.setText("Lösenord:");
-
-        passwordField.setText("jPasswordField1");
 
         loginButton.setText("Logga in");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
@@ -103,9 +103,11 @@ public class MenuLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        
-        MenuMall start = new MenuMall();
         this.setVisible(false);
+        MenuMall start = new MenuMall();
+        start.setVisible(true);
+        
+
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
