@@ -16,6 +16,7 @@ public class MenuLogin extends javax.swing.JFrame {
     public MenuLogin() {
         
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -105,6 +106,7 @@ public class MenuLogin extends javax.swing.JFrame {
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         this.setVisible(false);
         MenuMall start = new MenuMall();
+        start.setLocationRelativeTo(null);
         start.setVisible(true);
         
 
