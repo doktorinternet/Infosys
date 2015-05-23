@@ -3,21 +3,38 @@
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JDialog" name="staffFormPopup">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[290, 261]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[290, 261]"/>
+        </Property>
+        <Property name="resizable" type="boolean" value="false"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="newStaffPane" alignment="1" min="-2" max="-2" attributes="0"/>
+              <Component id="newStaffPane" min="-2" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="newStaffPane" min="-2" pref="151" max="-2" attributes="0"/>
+              <Component id="newStaffPane" min="-2" pref="142" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="newStaffPane">
+          <Properties>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[290, 261]"/>
+            </Property>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[290, 261]"/>
+            </Property>
+          </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -29,18 +46,18 @@
                           <Component id="activeCheck" min="-2" pref="78" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="staffPhoneField" pref="115" max="32767" attributes="0"/>
                                   <Component id="staffNameField" max="32767" attributes="0"/>
-                                  <Component id="staffPhoneField" pref="94" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jLabel1" min="-2" pref="63" max="-2" attributes="0"/>
+                                      <Component id="accountTypeLabel" min="-2" pref="63" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="staffAccountBox" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel2" min="-2" pref="63" max="-2" attributes="0"/>
+                                      <Component id="deptLabel" min="-2" pref="63" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="staffDeptBox" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -63,12 +80,12 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="accountTypeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="staffAccountBox" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="deptLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="staffDeptBox" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -76,8 +93,8 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="activeCheck" min="-2" pref="23" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="saveStaffButton" min="-2" pref="56" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
+                      <Component id="saveStaffButton" min="-2" pref="47" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -121,12 +138,12 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="accountTypeLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Kontotyp:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="deptLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Avdelning:"/>
               </Properties>
@@ -286,15 +303,6 @@
         </Container>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="formButton1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Skapa ny"/>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="formButton1ActionPerformed"/>
-      </Events>
-    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -406,14 +414,14 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="190" y="0" width="550" height="270"/>
+              <AbsoluteConstraints x="180" y="0" width="560" height="270"/>
             </Constraint>
           </Constraints>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="resultPane" alignment="0" pref="550" max="32767" attributes="0"/>
+                  <Component id="resultPane" alignment="0" pref="560" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -549,7 +557,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="0" y="280" width="180" height="70"/>
+                  <AbsoluteConstraints x="0" y="270" width="180" height="80"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -565,7 +573,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="190" y="280" width="550" height="-1"/>
+              <AbsoluteConstraints x="180" y="270" width="560" height="80"/>
             </Constraint>
           </Constraints>
 
@@ -578,24 +586,24 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="searchButton" min="-2" pref="132" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="formButton2" min="-2" max="-2" attributes="0"/>
+                      <Component id="newActivityButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="formButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="144" max="32767" attributes="0"/>
+                      <Component id="newStaffButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="90" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="searchField" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                           <Component id="searchButton" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="formButton" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="formButton2" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="searchField" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="newStaffButton" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="newActivityButton" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="18" max="32767" attributes="0"/>
+                      <EmptySpace pref="24" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -614,23 +622,23 @@
                 <Property name="text" type="java.lang.String" value="Skriv in ID..."/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="formButton">
+            <Component class="javax.swing.JButton" name="newStaffButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Registrera ny personal"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newStaffButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="newActivityButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Skapa ny"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="opaque" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="formButtonActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="formButton2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Skapa ny"/>
-                <Property name="toolTipText" type="java.lang.String" value=""/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="formButton2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newActivityButtonActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
