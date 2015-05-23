@@ -46,14 +46,7 @@ public class DatabaseHandler{
 			while(rs.next()) {
 				 
 				arr.add("Name: "+rs.getString("givenName"));
-				arr.add("ID: "+rs.getString("id"));
-				arr.add("Family name: "+rs.getString("familyName"));
-				arr.add("Email: "+rs.getString("email"));
-				arr.add("Gender: " + rs.getString("gender"));
-				arr.add("Birthday: " + rs.getString("birth"));
-				arr.add("Member since: " + rs.getString("memberSince"));
-				arr.add("Is active: " + rs.getString("active").equals("1"));
-				arr.add("_______________");
+
 			} 
 		} catch (SQLException se) {
 			System.out.println(se.getMessage());
@@ -61,16 +54,30 @@ public class DatabaseHandler{
 		return arr; 
 	}
 
-	public void addActivity(String s){
+	public void addActivity(String activityName, String activityTime, String activityDate, String activityNote){
 		Statement s = null;
 		try{
 			s = DatabaseHandler.conn.createStatement();
-			s.executeUpdate()
+			s.executeUpdate("INSERT INTO activity(activityName, activityTime, activityDate, activityNote) VALUES(" + activityName + ", " + activityTime + ", " + activityDate + ", " + activityNote + ")");
+
 		}
 
 		catch(SQLException se){
 			System.out.println(se.getMessage());
 		}
 
+	}
+
+	public void addParticipants(String residentID, String participantName, String activityID){
+		Statement s = null;
+		try{
+			s = DatabaseHandler.conn.createStatement();
+			s.executeUpdate("INSERT INTO participants(residentID, participantName, activityID) VALUES(" + residentID + ", " + participantName + ", " + activityID + ")");
+
+		}
+
+		catch(SQLException se){
+			System.out.println(se.getMessage());
+		}
 	}
 }
