@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-import java.awt.Toolkit;
+//import java.awt.Toolkit;
 
 /**
  *
@@ -40,6 +40,7 @@ public class MenuMall extends javax.swing.JFrame {
         accountTypeLabel = new javax.swing.JLabel();
         deptLabel = new javax.swing.JLabel();
         staffPhoneField = new javax.swing.JFormattedTextField();
+        jLabel1 = new javax.swing.JLabel();
         activityFormPopup = new javax.swing.JDialog();
         newActivityPane = new javax.swing.JPanel();
         notesField = new java.awt.TextArea();
@@ -48,6 +49,7 @@ public class MenuMall extends javax.swing.JFrame {
         participantsField = new javax.swing.JTextField();
         saveActivityButton = new javax.swing.JButton();
         dateField = new javax.swing.JFormattedTextField();
+        wrongInfoLabel = new javax.swing.JLabel();
         titlePane = new javax.swing.JPanel();
         windowTitle = new javax.swing.JLabel();
         currentTab = new javax.swing.JLabel();
@@ -125,6 +127,9 @@ public class MenuMall extends javax.swing.JFrame {
         });
         newStaffPane.add(staffPhoneField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 42, 148, -1));
 
+        jLabel1.setText("jLabel1");
+        newStaffPane.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
+
         javax.swing.GroupLayout staffFormPopupLayout = new javax.swing.GroupLayout(staffFormPopup.getContentPane());
         staffFormPopup.getContentPane().setLayout(staffFormPopupLayout);
         staffFormPopupLayout.setHorizontalGroup(
@@ -133,13 +138,12 @@ public class MenuMall extends javax.swing.JFrame {
         );
         staffFormPopupLayout.setVerticalGroup(
             staffFormPopupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(newStaffPane, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(newStaffPane, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
         );
 
         activityFormPopup.setTitle("Skapa ny användare");
         activityFormPopup.setAlwaysOnTop(true);
         activityFormPopup.setBounds(new java.awt.Rectangle(0, 0, 290, 270));
-        activityFormPopup.setLocationByPlatform(true);
         activityFormPopup.setMaximumSize(new java.awt.Dimension(290, 300));
         activityFormPopup.setMinimumSize(new java.awt.Dimension(290, 300));
         activityFormPopup.setResizable(false);
@@ -148,7 +152,7 @@ public class MenuMall extends javax.swing.JFrame {
         newActivityPane.setMaximumSize(new java.awt.Dimension(290, 272));
         newActivityPane.setMinimumSize(new java.awt.Dimension(290, 272));
 
-        notesField.setColumns(3);
+        notesField.setColumns(10);
         notesField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         timeField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("HH:mm"))));
@@ -182,6 +186,9 @@ public class MenuMall extends javax.swing.JFrame {
         dateField.setText("Datum");
         dateField.setToolTipText("Använd formatet dd-mm-yyyy");
 
+        wrongInfoLabel.setForeground(new java.awt.Color(255, 0, 0));
+        wrongInfoLabel.setText("Alla fält skall vara ifyllda!");
+
         javax.swing.GroupLayout newActivityPaneLayout = new javax.swing.GroupLayout(newActivityPane);
         newActivityPane.setLayout(newActivityPaneLayout);
         newActivityPaneLayout.setHorizontalGroup(
@@ -189,21 +196,20 @@ public class MenuMall extends javax.swing.JFrame {
             .addGroup(newActivityPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(newActivityPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(newActivityPaneLayout.createSequentialGroup()
-                        .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(dateField))
-                    .addGroup(newActivityPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(newActivityPaneLayout.createSequentialGroup()
+                    .addGroup(newActivityPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, newActivityPaneLayout.createSequentialGroup()
+                            .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(dateField))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, newActivityPaneLayout.createSequentialGroup()
                             .addComponent(participantsField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(10, 10, 10)
                             .addComponent(timeField))
-                        .addGroup(newActivityPaneLayout.createSequentialGroup()
-                            .addGroup(newActivityPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(notesField, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(saveActivityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(0, 0, Short.MAX_VALUE))))
-                .addContainerGap())
+                        .addGroup(newActivityPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(notesField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(saveActivityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(wrongInfoLabel))
+                .addGap(592, 592, 592))
         );
         newActivityPaneLayout.setVerticalGroup(
             newActivityPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,18 +224,18 @@ public class MenuMall extends javax.swing.JFrame {
                     .addComponent(timeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addComponent(notesField, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(wrongInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(saveActivityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        activityFormPopup.getContentPane().add(newActivityPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 270));
+        activityFormPopup.getContentPane().add(newActivityPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 300));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("InfoSys");
         setResizable(false);
-
-        titlePane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         windowTitle.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
         windowTitle.setText("Baldurs Hage:");
@@ -242,10 +248,10 @@ public class MenuMall extends javax.swing.JFrame {
         titlePaneLayout.setHorizontalGroup(
             titlePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(titlePaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(windowTitle)
+                .addComponent(windowTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(currentTab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(currentTab, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         titlePaneLayout.setVerticalGroup(
             titlePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,14 +275,14 @@ public class MenuMall extends javax.swing.JFrame {
         upperResultPane.setLayout(upperResultPaneLayout);
         upperResultPaneLayout.setHorizontalGroup(
             upperResultPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(resultPane, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
+            .addComponent(resultPane, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
         );
         upperResultPaneLayout.setVerticalGroup(
             upperResultPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(resultPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+            .addComponent(resultPane, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
         );
 
-        basePane.add(upperResultPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 560, 270));
+        basePane.add(upperResultPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 550, 270));
         newActivityPane.setVisible(false);
 
         buttonMenuPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -389,7 +395,7 @@ public class MenuMall extends javax.swing.JFrame {
                 .addComponent(newActivityButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(newStaffButton)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         bottomPaneLayout.setVerticalGroup(
             bottomPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -403,7 +409,7 @@ public class MenuMall extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        basePane.add(bottomPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 560, 80));
+        basePane.add(bottomPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 550, 80));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -490,8 +496,14 @@ public class MenuMall extends javax.swing.JFrame {
     }//GEN-LAST:event_timeFieldActionPerformed
 
     private void saveActivityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActivityButtonActionPerformed
+        if(nameField.getText() == null || dateField.getText() == null || 
+           participantsField.getText() == null || timeField.getText() == null){
+            wrongInfoLabel.setVisible(true);
+        }
+        
         resultPane.setVisible(true);
         activityFormPopup.setVisible(false);
+
         //formButton.setVisible(false);
     }//GEN-LAST:event_saveActivityButtonActionPerformed
 
@@ -522,7 +534,6 @@ public class MenuMall extends javax.swing.JFrame {
     private void newStaffButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newStaffButtonActionPerformed
         staffFormPopup.pack();
         staffFormPopup.setVisible(true);
-        
     }//GEN-LAST:event_newStaffButtonActionPerformed
 //GEN-FIRST:event_formButtonActionPerformed
  
@@ -533,6 +544,9 @@ public class MenuMall extends javax.swing.JFrame {
         activityFormPopup.setLocationRelativeTo(null);
         activityFormPopup.setVisible(true);
         newActivityPane.setVisible(true);
+        wrongInfoLabel.setVisible(false);
+        //notesField.setLineWrap(false);
+
     }//GEN-LAST:event_newActivityButtonActionPerformed
 
   /**  public void centerOnParent(final Window child, final boolean absolute) {
@@ -577,6 +591,7 @@ public class MenuMall extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField dateField;
     private javax.swing.JLabel deptLabel;
     private javax.swing.JButton deptScheduleButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton logOut;
     private javax.swing.JTextField nameField;
     private javax.swing.JButton newActivityButton;
@@ -603,5 +618,6 @@ public class MenuMall extends javax.swing.JFrame {
     private javax.swing.JPanel upperResultPane;
     private javax.swing.JLabel windowTitle;
     private javax.swing.JButton workShiftButton;
+    private javax.swing.JLabel wrongInfoLabel;
     // End of variables declaration//GEN-END:variables
 }
