@@ -5,6 +5,8 @@
  */
 
 //import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -496,13 +498,32 @@ public class MenuMall extends javax.swing.JFrame {
     }//GEN-LAST:event_timeFieldActionPerformed
 
     private void saveActivityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActivityButtonActionPerformed
-        if(nameField.getText() == null || dateField.getText() == null || 
-           participantsField.getText() == null || timeField.getText() == null){
+        String name, date, time, notes, participants;
+        name = nameField.getText();
+        date = dateField.getText();
+        time = timeField.getText();
+        notes = notesField.getText();
+        participants = participantsField.getText();
+        
+        if(name == null || date == null || participants == null || time == null){
             wrongInfoLabel.setVisible(true);
+        }else{
+            
+            dbh.addActivity(nameField.getText(), timeField.getText(), 
+                dateField.getText(), notesField.getText()); 
+            String activityID = dbh.getActivityID(name, time, date);
+            ArrayList<String> participantsArr = new ArrayList(
+                Arrays.asList(participantsField.getText().split(",")));
+            for(String s : participantsArr){
+                dbh.addParticipants(s, activityID);
+            }
+ 
+              
+            resultPane.setVisible(true);
+            activityFormPopup.setVisible(false);
         }
         
-        resultPane.setVisible(true);
-        activityFormPopup.setVisible(false);
+        
 
         //formButton.setVisible(false);
     }//GEN-LAST:event_saveActivityButtonActionPerformed
@@ -577,7 +598,8 @@ public class MenuMall extends javax.swing.JFrame {
         child.setLocation(x, y);
     }*/
     
-   String [] arr;
+    String [] arr;
+    static DatabaseHandler dbh = new DatabaseHandler();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel accountTypeLabel;
     private javax.swing.JCheckBox activeCheck;
