@@ -63,11 +63,11 @@ public class DatabaseHandler{
 		}		
 	}
 
-	public void addParticipants(String residentID, String participantName, String activityID){
+	public void addParticipants(String participantName, String activityID){
 		Statement s = null;
 		try{
 			s = DatabaseHandler.conn.createStatement();
-			s.executeUpdate("INSERT INTO participants(residentID, participantName, activityID) VALUES(" + residentID + ", " + participantName + ", " + activityID + ")");
+			s.executeUpdate("INSERT INTO participants(participantName, activityID) VALUES(" + participantName + ", " + activityID + ")");
 
 		}
 
