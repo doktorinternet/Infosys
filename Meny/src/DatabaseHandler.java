@@ -12,7 +12,7 @@ public class DatabaseHandler{
 	public void initDatabase(){
 
 		try {
-			Class.forName(JDBC_DRIVER);
+			Class.forName("org.sqlite.JDBC");
 		} catch (ClassNotFoundException cnfE) {
 			System.err.println("Could not find JDBC driver!");
 			cnfE.printStackTrace();
