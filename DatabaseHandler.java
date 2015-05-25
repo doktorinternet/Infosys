@@ -50,6 +50,19 @@ public class DatabaseHandler{
 
 	}
 
+	public String getActivityID(String activityName, String activityTime, String activityDate){
+		
+		try{
+			s = DatabaseHandler.conn.createStatement();
+			s.executeQuery("SELECT activityID FROM activity WHERE activityName = " + activityName + " AND activityTime = " + activityTime + " AND activityDate = " + activityDate);
+
+		}
+
+		catch(SQLException se){
+			System.out.println(se.getMessage());
+		}		
+	}
+
 	public void addParticipants(String residentID, String participantName, String activityID){
 		Statement s = null;
 		try{
