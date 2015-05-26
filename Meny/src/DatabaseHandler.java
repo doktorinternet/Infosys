@@ -10,7 +10,7 @@ public class DatabaseHandler{
 	static final String JDBC_DRIVER = "org.sqlite.JDBC";
 	public static Connection conn = null;
 
-		public static GregorianCalendar cal = new GregorianCalendar();
+	public static GregorianCalendar cal = new GregorianCalendar();
 	public SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	
 	public void initDatabase(){
