@@ -118,12 +118,11 @@ public class DatabaseHandler{
     
         public ArrayList<String> getAllActivities(){
                 
-            arr = new ArrayList<String>();
+        arr = new ArrayList<String>();
 
 		java.util.Date date = cal.getTime();
 		String dateCheck = dateFormat.format(date);
 		String id = null;
-		ResultSet rs2 = null;
 
 		try{
 			s = DatabaseHandler.conn.createStatement();
@@ -136,12 +135,6 @@ public class DatabaseHandler{
 				arr.add("Tid: "+rs.getString("activityTime"));
 				arr.add("Datum: "+rs.getString("activityDate"));
 				arr.add("Anteckning: " + rs.getString("activityNote"));
-				arr.add("Deltagare:");
-				id = rs.getString("activityID");
-				rs2 = s.executeQuery("SELECT participantName FROM participants WHERE activityID = '" + id + "'");
-				while(rs2.next()){
-					arr.add(rs2.getString);
-				}
                 arr.add("______________________________");
 
 			}
