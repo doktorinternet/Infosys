@@ -106,6 +106,7 @@ public class DatabaseHandler{
 				arr.add("Time: "+rs.getString("activityTime"));
 				arr.add("Date: "+rs.getString("activityDate"));
 				arr.add("Notes: " + rs.getString("activityNote"));
+            	arr.add("______________________________");
             	
 			}
 
