@@ -125,7 +125,7 @@ public class DatabaseHandler{
 		ResultSet rs = null; 
 		ArrayList<String> arr = new ArrayList<String>();
 
-		Date date = cal.getTime();
+		java.util.Date date = cal.getTime();
 		String dateCheck = dateFormat.format(date);
 
 		try{
