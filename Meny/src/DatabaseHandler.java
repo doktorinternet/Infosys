@@ -14,7 +14,8 @@ public class DatabaseHandler{
 	public static GregorianCalendar cal = new GregorianCalendar();
 	public SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	private ArrayList<String> arr;
-        
+        static ArrayList<String> participantList;
+                
 	public void initDatabase(){
 
 		try {
@@ -115,23 +116,31 @@ public class DatabaseHandler{
 		return arr;
 	}
     
-    	public ArrayList<String> getAllActivities(){
-
-		arr = new ArrayList<String>();
+            public ArrayList<String> getAllActivities(){
+                
+                arr = new ArrayList<String>();
 
 		java.util.Date date = cal.getTime();
 		String dateCheck = dateFormat.format(date);
+		String id = null;
+		participantList = new ArrayList<String>();
 
 		try{
 			s = DatabaseHandler.conn.createStatement();
-			rs = s.executeQuery("SELECT * FROM activity WHERE activityDate >= '" + dateCheck + "';");
+			rs = s.executeQuery("SELECT * FROM activity WHERE activityDate >= '" + dateCheck + "'");
 			while(rs.next()){
 				
-				arr.add("Activity ID: "+rs.getString("activityID"));
-				arr.add("Activity name: "+rs.getString("activityName"));
-				arr.add("Time: "+rs.getString("activityTime"));
-				arr.add("Date: "+rs.getString("activityDate"));
-				arr.add("Notes: " + rs.getString("activityNote"));
+				id = rs.getString("activityID");
+				arr.add("Aktivitets-ID: "+rs.getString("activityID"));
+				arr.add("Aktivitetsnamn: "+rs.getString("activityName"));
+				arr.add("Tid: "+rs.getString("activityTime"));
+				arr.add("Datum: "+rs.getString("activityDate"));
+				arr.add("Anteckning: " + rs.getString("activityNote"));
+				arr.add("Deltagare:");
+				participantList = MenuMall.dbh.getParticipants(id);
+				for (String str : participantList){
+					arr.add(str);
+				}
                                 arr.add("______________________________");
 
 			}
