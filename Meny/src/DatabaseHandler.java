@@ -116,15 +116,14 @@ public class DatabaseHandler{
 		return arr;
 	}
     
-        public ArrayList<String> getAllActivities(){
+            public ArrayList<String> getAllActivities(){
                 
-            arr = new ArrayList<String>();
+                arr = new ArrayList<String>();
 
 		java.util.Date date = cal.getTime();
 		String dateCheck = dateFormat.format(date);
 		String id = null;
 		participantList = new ArrayList<String>();
-		Iterator<String> iter = arr.iterator();
 
 		try{
 			s = DatabaseHandler.conn.createStatement();
@@ -132,17 +131,17 @@ public class DatabaseHandler{
 			while(rs.next()){
 				
 				id = rs.getString("activityID");
-				iter.add("Aktivitets-ID: "+rs.getString("activityID"));
-				iter.add("Aktivitetsnamn: "+rs.getString("activityName"));
-				iter.add("Tid: "+rs.getString("activityTime"));
-				iter.add("Datum: "+rs.getString("activityDate"));
-				iter.add("Anteckning: " + rs.getString("activityNote"));
-				iter.add("Deltagare:");
+				arr.add("Aktivitets-ID: "+rs.getString("activityID"));
+				arr.add("Aktivitetsnamn: "+rs.getString("activityName"));
+				arr.add("Tid: "+rs.getString("activityTime"));
+				arr.add("Datum: "+rs.getString("activityDate"));
+				arr.add("Anteckning: " + rs.getString("activityNote"));
+				arr.add("Deltagare:");
 				participantList = MenuMall.dbh.getParticipants(id);
 				for (String str : participantList){
-					iter.add(str);
+					arr.add(str);
 				}
-                iter.add("______________________________");
+                                arr.add("______________________________");
 
 			}
 		}
