@@ -123,26 +123,26 @@ public class DatabaseHandler{
 		java.util.Date date = cal.getTime();
 		String dateCheck = dateFormat.format(date);
 		String id = null;
-		participantList = new ArrayList<String>();
-		Iterator<String> iter = arr.iterator();
+		ResultSet rs2 = null;
 
 		try{
 			s = DatabaseHandler.conn.createStatement();
 			rs = s.executeQuery("SELECT * FROM activity WHERE activityDate >= '" + dateCheck + "'");
+			
 			while(rs.next()){
 				
+				arr.add("Aktivitets-ID: "+rs.getString("activityID"));
+				arr.add("Aktivitetsnamn: "+rs.getString("activityName"));
+				arr.add("Tid: "+rs.getString("activityTime"));
+				arr.add("Datum: "+rs.getString("activityDate"));
+				arr.add("Anteckning: " + rs.getString("activityNote"));
+				arr.add("Deltagare:");
 				id = rs.getString("activityID");
-				iter.add("Aktivitets-ID: "+rs.getString("activityID"));
-				iter.add("Aktivitetsnamn: "+rs.getString("activityName"));
-				iter.add("Tid: "+rs.getString("activityTime"));
-				iter.add("Datum: "+rs.getString("activityDate"));
-				iter.add("Anteckning: " + rs.getString("activityNote"));
-				iter.add("Deltagare:");
-				participantList = MenuMall.dbh.getParticipants(id);
-				for (String str : participantList){
-					iter.add(str);
+				rs2 = s.executeQuery("SELECT participantName FROM participants WHERE activityID = '" + id + "'");
+				while(rs2.next()){
+					arr.add(rs2.getString);
 				}
-                iter.add("______________________________");
+                arr.add("______________________________");
 
 			}
 		}
