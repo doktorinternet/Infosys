@@ -75,15 +75,12 @@ public class MenuMall extends javax.swing.JFrame {
 
         staffFormPopup.setSize(362,200);
         staffFormPopup.setLocationRelativeTo(null);
-        staffFormPopup.setMaximumSize(new java.awt.Dimension(290, 261));
         staffFormPopup.setMinimumSize(new java.awt.Dimension(290, 164));
         activityFormPopup.setAlwaysOnTop(true);
-        staffFormPopup.setPreferredSize(new java.awt.Dimension(362, 200));
         staffFormPopup.setResizable(false);
 
         newStaffPane.setMaximumSize(new java.awt.Dimension(290, 164));
         newStaffPane.setPreferredSize(new java.awt.Dimension(290, 164));
-        newStaffPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         saveStaffButton.setText("Registrera ");
         saveStaffButton.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +88,6 @@ public class MenuMall extends javax.swing.JFrame {
                 saveStaffButtonActionPerformed(evt);
             }
         });
-        newStaffPane.add(saveStaffButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 238, 40));
 
         staffNameField.setText("Namn");
         staffNameField.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +95,6 @@ public class MenuMall extends javax.swing.JFrame {
                 staffNameFieldActionPerformed(evt);
             }
         });
-        newStaffPane.add(staffNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 148, -1));
 
         activeCheck.setText("Aktiv");
         activeCheck.addActionListener(new java.awt.event.ActionListener() {
@@ -107,19 +102,14 @@ public class MenuMall extends javax.swing.JFrame {
                 activeCheckActionPerformed(evt);
             }
         });
-        newStaffPane.add(activeCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 78, -1));
 
         staffAccountBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"Personal", "Sjuksköterska", "Chef"}));
-        newStaffPane.add(staffAccountBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 11, 120, -1));
 
         staffDeptBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"Balders hage"}));
-        newStaffPane.add(staffDeptBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 42, 120, -1));
 
         accountTypeLabel.setText("Kontotyp:");
-        newStaffPane.add(accountTypeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 14, -1, -1));
 
         deptLabel.setText("Avdelning:");
-        newStaffPane.add(deptLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 45, -1, -1));
 
         staffPhoneField.setText("Telefonnummer");
         staffPhoneField.addActionListener(new java.awt.event.ActionListener() {
@@ -127,10 +117,61 @@ public class MenuMall extends javax.swing.JFrame {
                 staffPhoneFieldActionPerformed(evt);
             }
         });
-        newStaffPane.add(staffPhoneField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 42, 148, -1));
 
         jLabel1.setText("jLabel1");
-        newStaffPane.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
+
+        javax.swing.GroupLayout newStaffPaneLayout = new javax.swing.GroupLayout(newStaffPane);
+        newStaffPane.setLayout(newStaffPaneLayout);
+        newStaffPaneLayout.setHorizontalGroup(
+            newStaffPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(newStaffPaneLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(staffNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(accountTypeLabel)
+                .addGap(13, 13, 13)
+                .addComponent(staffAccountBox, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(newStaffPaneLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(staffPhoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(deptLabel)
+                .addGap(10, 10, 10)
+                .addComponent(staffDeptBox, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(newStaffPaneLayout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(activeCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(newStaffPaneLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(saveStaffButton, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(newStaffPaneLayout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(jLabel1))
+        );
+        newStaffPaneLayout.setVerticalGroup(
+            newStaffPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(newStaffPaneLayout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addGroup(newStaffPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(staffNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(newStaffPaneLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(accountTypeLabel))
+                    .addComponent(staffAccountBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(newStaffPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(staffPhoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(newStaffPaneLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(deptLabel))
+                    .addComponent(staffDeptBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(activeCheck)
+                .addGap(17, 17, 17)
+                .addComponent(saveStaffButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel1))
+        );
 
         javax.swing.GroupLayout staffFormPopupLayout = new javax.swing.GroupLayout(staffFormPopup.getContentPane());
         staffFormPopup.getContentPane().setLayout(staffFormPopupLayout);
@@ -149,7 +190,6 @@ public class MenuMall extends javax.swing.JFrame {
         activityFormPopup.setMaximumSize(new java.awt.Dimension(290, 300));
         activityFormPopup.setMinimumSize(new java.awt.Dimension(290, 300));
         activityFormPopup.setResizable(false);
-        activityFormPopup.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         newActivityPane.setMaximumSize(new java.awt.Dimension(290, 272));
         newActivityPane.setMinimumSize(new java.awt.Dimension(290, 272));
@@ -211,7 +251,7 @@ public class MenuMall extends javax.swing.JFrame {
                             .addComponent(notesField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(saveActivityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(wrongInfoLabel))
-                .addGap(592, 592, 592))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         newActivityPaneLayout.setVerticalGroup(
             newActivityPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,7 +273,16 @@ public class MenuMall extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        activityFormPopup.getContentPane().add(newActivityPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 300));
+        javax.swing.GroupLayout activityFormPopupLayout = new javax.swing.GroupLayout(activityFormPopup.getContentPane());
+        activityFormPopup.getContentPane().setLayout(activityFormPopupLayout);
+        activityFormPopupLayout.setHorizontalGroup(
+            activityFormPopupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(newActivityPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        activityFormPopupLayout.setVerticalGroup(
+            activityFormPopupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(newActivityPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("InfoSys");
@@ -251,20 +300,14 @@ public class MenuMall extends javax.swing.JFrame {
             titlePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(titlePaneLayout.createSequentialGroup()
                 .addComponent(windowTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(currentTab, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(6, 6, 6)
+                .addComponent(currentTab, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         titlePaneLayout.setVerticalGroup(
             titlePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(titlePaneLayout.createSequentialGroup()
-                .addGroup(titlePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(windowTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                    .addComponent(currentTab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(windowTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(currentTab, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-
-        basePane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         upperResultPane.setForeground(new java.awt.Color(51, 51, 255));
         upperResultPane.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -284,18 +327,12 @@ public class MenuMall extends javax.swing.JFrame {
             .addComponent(resultPane, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
         );
 
-        basePane.add(upperResultPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 550, 270));
-        newActivityPane.setVisible(false);
-
-        buttonMenuPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         scheduleButton.setText("Arbetsschema");
         scheduleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 scheduleButtonActionPerformed(evt);
             }
         });
-        buttonMenuPane.add(scheduleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 30));
 
         activityButton.setText("Aktiviteter");
         activityButton.addActionListener(new java.awt.event.ActionListener() {
@@ -303,7 +340,6 @@ public class MenuMall extends javax.swing.JFrame {
                 activityButtonActionPerformed(evt);
             }
         });
-        buttonMenuPane.add(activityButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 180, 30));
 
         workShiftButton.setText("Arbetspassplan");
         workShiftButton.addActionListener(new java.awt.event.ActionListener() {
@@ -311,7 +347,6 @@ public class MenuMall extends javax.swing.JFrame {
                 workShiftButtonActionPerformed(evt);
             }
         });
-        buttonMenuPane.add(workShiftButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 180, 30));
 
         careButton.setText("Omsorgsåtgärder");
         careButton.addActionListener(new java.awt.event.ActionListener() {
@@ -319,7 +354,6 @@ public class MenuMall extends javax.swing.JFrame {
                 careButtonActionPerformed(evt);
             }
         });
-        buttonMenuPane.add(careButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 180, 30));
 
         staffRegButton.setText("Personalregister");
         staffRegButton.addActionListener(new java.awt.event.ActionListener() {
@@ -327,7 +361,6 @@ public class MenuMall extends javax.swing.JFrame {
                 staffRegButtonActionPerformed(evt);
             }
         });
-        buttonMenuPane.add(staffRegButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 180, 30));
 
         resRegButton.setText("Boenderegister");
         resRegButton.addActionListener(new java.awt.event.ActionListener() {
@@ -335,7 +368,6 @@ public class MenuMall extends javax.swing.JFrame {
                 resRegButtonActionPerformed(evt);
             }
         });
-        buttonMenuPane.add(resRegButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 180, 30));
 
         deptScheduleButton.setText("Avdelningsplan");
         deptScheduleButton.addActionListener(new java.awt.event.ActionListener() {
@@ -343,7 +375,6 @@ public class MenuMall extends javax.swing.JFrame {
                 deptScheduleButtonActionPerformed(evt);
             }
         });
-        buttonMenuPane.add(deptScheduleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 180, 30));
 
         logOut.setText("Logga ut");
         logOut.addActionListener(new java.awt.event.ActionListener() {
@@ -351,11 +382,39 @@ public class MenuMall extends javax.swing.JFrame {
                 logOutActionPerformed(evt);
             }
         });
-        buttonMenuPane.add(logOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 180, 80));
 
-        basePane.add(buttonMenuPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 350));
-
-        bottomPane.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        javax.swing.GroupLayout buttonMenuPaneLayout = new javax.swing.GroupLayout(buttonMenuPane);
+        buttonMenuPane.setLayout(buttonMenuPaneLayout);
+        buttonMenuPaneLayout.setHorizontalGroup(
+            buttonMenuPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(scheduleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(activityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(deptScheduleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(workShiftButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(careButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(staffRegButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(resRegButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(logOut, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        buttonMenuPaneLayout.setVerticalGroup(
+            buttonMenuPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonMenuPaneLayout.createSequentialGroup()
+                .addComponent(scheduleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(activityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(deptScheduleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(workShiftButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(careButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(staffRegButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(resRegButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(logOut, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         searchButton.setText("Sök");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -389,43 +448,60 @@ public class MenuMall extends javax.swing.JFrame {
         bottomPaneLayout.setHorizontalGroup(
             bottomPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bottomPaneLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(10, 10, 10)
                 .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(newActivityButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(newStaffButton)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addGap(6, 6, 6)
+                .addComponent(newStaffButton))
         );
         bottomPaneLayout.setVerticalGroup(
             bottomPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bottomPaneLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(bottomPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(bottomPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(newStaffButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(newActivityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                    .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newActivityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newStaffButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        basePane.add(bottomPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 550, 80));
+        javax.swing.GroupLayout basePaneLayout = new javax.swing.GroupLayout(basePane);
+        basePane.setLayout(basePaneLayout);
+        basePaneLayout.setHorizontalGroup(
+            basePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(basePaneLayout.createSequentialGroup()
+                .addComponent(buttonMenuPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(basePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(upperResultPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bottomPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        basePaneLayout.setVerticalGroup(
+            basePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(buttonMenuPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(basePaneLayout.createSequentialGroup()
+                .addComponent(upperResultPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(bottomPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        newActivityPane.setVisible(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(basePane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(titlePane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(titlePane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(basePane, javax.swing.GroupLayout.PREFERRED_SIZE, 731, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(titlePane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(basePane, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addComponent(basePane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -505,15 +581,15 @@ public class MenuMall extends javax.swing.JFrame {
         notes = notesField.getText();
         participants = participantsField.getText();
         
-        if(name == null || date == null || participants == null || time == null){
+        if(name.equals("") || participants.equals("") || time.equals("") || date.equals("")){
             wrongInfoLabel.setVisible(true);
+            activityFormPopup.pack();
         }else{
             
-            dbh.addActivity(nameField.getText(), timeField.getText(), 
-                dateField.getText(), notesField.getText()); 
+            dbh.addActivity(name, time, date, notes);
             String activityID = dbh.getActivityID(name, time, date);
             ArrayList<String> participantsArr = new ArrayList(
-                Arrays.asList(participantsField.getText().split(",")));
+                Arrays.asList(participants.split(", ")));
             for(String s : participantsArr){
                 dbh.addParticipants(s, activityID);
             }

@@ -67,11 +67,11 @@ public class DatabaseHandler{
             return ID;
 	}
 
-	public void addParticipants(String participantName, String activityID){
+	public void addParticipants(String name, String id){
 		Statement s = null;
 		try{
 			s = DatabaseHandler.conn.createStatement();
-			s.executeUpdate("INSERT INTO participants(participantName, activityID) VALUES(" + participantName + ", " + activityID + ")");
+			s.executeUpdate("INSERT INTO participants(participantName, activityID) VALUES(" + name + ", " + id + ")");
 
 		}
 
@@ -84,7 +84,7 @@ public class DatabaseHandler{
 
 		Statement s = null;
 		ResultSet rs = null; 
-		ArrayList<String> arr = new ArrayList<String>();
+		ArrayList<String> arr = new ArrayList();
 
 		try{
 			s = DatabaseHandler.conn.createStatement();
