@@ -12,7 +12,7 @@ public class DatabaseHandler{
 	public void initDatabase(){
 
 		try {
-			Class.forName("org.sqlite.JDBC");
+			Class.forName(JDBC_DRIVER);
 		} catch (ClassNotFoundException cnfE) {
 			System.err.println("Could not find JDBC driver!");
 			cnfE.printStackTrace();
@@ -38,40 +38,46 @@ public class DatabaseHandler{
 
 	public void addActivity(String activityName, String activityTime, String activityDate, String activityNote){
 		Statement s = null;
+		String str = "INSERT INTO activity ( activityName, activityTime, activityDate, activityNote) VALUES ('" + activityName + "', '" + activityTime + "', '" + activityDate + "', '" + activityNote + "');";
+		
+		System.out.println(str);
+		
 		try{
+			
 			s = DatabaseHandler.conn.createStatement();
-			s.executeUpdate("INSERT INTO activity(activityName, activityTime, activityDate, activityNote) VALUES(" + activityName + ", " + activityTime + ", " + activityDate + ", " + activityNote + ")");
-
+			s.executeUpdate(str);
+			
 		}
 
 		catch(SQLException se){
+			System.out.println("välkommen till catch");
 			System.out.println(se.getMessage());
 		}
 
 	}
 
 	public String getActivityID(String activityName, String activityTime, String activityDate){
-            Statement s = null;
-            ResultSet rs = null; 
-            String ID = null;
-                
-		try{
-                    s = DatabaseHandler.conn.createStatement();
-                    rs = s.executeQuery("SELECT activityID FROM activity WHERE activityName = " + activityName + " AND activityTime = " + activityTime + " AND activityDate = " + activityDate);
-                    ID = rs.getString("activityID");
+		Statement s = null;
+		ResultSet rs = null;
+		String id = null;
+		try{	
+			s = DatabaseHandler.conn.createStatement();
+			rs = s.executeQuery("SELECT activityID FROM activity WHERE activityName = '" + activityName + "' AND activityTime = '" + activityTime + "' AND activityDate = '" + activityDate + "'");
+			id = rs.getString("activityID");
 		}
 
 		catch(SQLException se){
-                    System.out.println(se.getMessage());
-		}
-            return ID;
+			System.out.println(se.getMessage());
+		}		
+	
+		return id;
 	}
 
-	public void addParticipants(String name, String id){
+	public void addParticipants(String participantName, String activityID){
 		Statement s = null;
 		try{
 			s = DatabaseHandler.conn.createStatement();
-			s.executeUpdate("INSERT INTO participants(participantName, activityID) VALUES(" + name + ", " + id + ")");
+			s.executeUpdate("INSERT INTO participants (participantName, activityID) VALUES( '" + participantName + "', '" + activityID + "');");
 
 		}
 
@@ -84,11 +90,11 @@ public class DatabaseHandler{
 
 		Statement s = null;
 		ResultSet rs = null; 
-		ArrayList<String> arr = new ArrayList();
+		ArrayList<String> arr = new ArrayList<String>();
 
 		try{
 			s = DatabaseHandler.conn.createStatement();
-			rs = s.executeQuery("SELECT * FROM activity WHERE activityID =" + activityID + ";");
+			rs = s.executeQuery("SELECT * FROM activity WHERE activityID = '" + activityID + "';");
 			while(rs.next()){
 				
 				arr.add("Activity ID: "+rs.getString("activityID"));
@@ -143,7 +149,7 @@ public class DatabaseHandler{
 
 		try{
 			s = DatabaseHandler.conn.createStatement();
-			rs = s.executeQuery("SELECT paticipantName FROM participants WHERE activityID =" + activityID);
+			rs = s.executeQuery("SELECT paticipantName FROM participants WHERE activityID = '" + activityID + "'");
 			while(rs.next()){
 				arr.add(rs.getString("participantName"));
             	
