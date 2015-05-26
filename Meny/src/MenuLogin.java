@@ -104,8 +104,12 @@ public class MenuLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        String userName, passWord;
+        userName = usernameField.getText();
+        passWord = passwordField.getText();
+        
         this.setVisible(false);
-        MenuMall start = new MenuMall();
+        start = new MenuMall();
         start.setLocationRelativeTo(null);
         start.setVisible(true);
         
@@ -158,6 +162,8 @@ public class MenuLogin extends javax.swing.JFrame {
         });
     }
     
+
+    public static MenuMall start;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
     private javax.swing.JButton loginButton;

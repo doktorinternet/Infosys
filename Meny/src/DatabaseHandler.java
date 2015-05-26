@@ -9,10 +9,12 @@ public class DatabaseHandler{
 	static final String DB_URL = "jdbc:sqlite:balder.db";
 	static final String JDBC_DRIVER = "org.sqlite.JDBC";
 	public static Connection conn = null;
-
+        private Statement s = null;
+        private ResultSet rs = null;
 	public static GregorianCalendar cal = new GregorianCalendar();
 	public SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	
+	private ArrayList<String> arr;
+        
 	public void initDatabase(){
 
 		try {
@@ -41,7 +43,7 @@ public class DatabaseHandler{
 	}
 
 	public void addActivity(String activityName, String activityTime, String activityDate, String activityNote){
-		Statement s = null;
+		
 		String str = "INSERT INTO activity ( activityName, activityTime, activityDate, activityNote) VALUES ('" + activityName + "', '" + activityTime + "', '" + activityDate + "', '" + activityNote + "');";
 		
 		System.out.println(str);
@@ -61,40 +63,34 @@ public class DatabaseHandler{
 	}
 
 	public String getActivityID(String activityName, String activityTime, String activityDate){
-		Statement s = null;
-		ResultSet rs = null;
-		String id = null;
-		try{	
-			s = DatabaseHandler.conn.createStatement();
-			rs = s.executeQuery("SELECT activityID FROM activity WHERE activityName = '" + activityName + "' AND activityTime = '" + activityTime + "' AND activityDate = '" + activityDate + "'");
-			id = rs.getString("activityID");
-		}
+            String id = null;
+            try{	
+		s = DatabaseHandler.conn.createStatement();
+		rs = s.executeQuery("SELECT activityID FROM activity WHERE activityName = '" + activityName + "' AND activityTime = '" + activityTime + "' AND activityDate = '" + activityDate + "'");
+		id = rs.getString("activityID");
+            }
 
-		catch(SQLException se){
-			System.out.println(se.getMessage());
-		}		
+            catch(SQLException se){
+		System.out.println(se.getMessage());
+            }		
 	
-		return id;
+            return id;
 	}
 
 	public void addParticipants(String participantName, String activityID){
-		Statement s = null;
-		try{
-			s = DatabaseHandler.conn.createStatement();
-			s.executeUpdate("INSERT INTO participants (participantName, activityID) VALUES( '" + participantName + "', '" + activityID + "');");
+            try{
+		s = DatabaseHandler.conn.createStatement();
+		s.executeUpdate("INSERT INTO participants (participantName, activityID) VALUES( '" + participantName + "', '" + activityID + "');");
 
-		}
+            }
 
-		catch(SQLException se){
-			System.out.println(se.getMessage());
-		}
+            catch(SQLException se){
+		System.out.println(se.getMessage());
+            }
 	}
 
 	public ArrayList<String> getActivity(String activityID){
-
-		Statement s = null;
-		ResultSet rs = null; 
-		ArrayList<String> arr = new ArrayList<String>();
+		arr = new ArrayList<String>();
 
 		try{
 			s = DatabaseHandler.conn.createStatement();
@@ -106,7 +102,7 @@ public class DatabaseHandler{
 				arr.add("Time: "+rs.getString("activityTime"));
 				arr.add("Date: "+rs.getString("activityDate"));
 				arr.add("Notes: " + rs.getString("activityNote"));
-            	arr.add("______________________________");
+                                arr.add("______________________________");
             	
 			}
 
@@ -118,19 +114,17 @@ public class DatabaseHandler{
 
 		return arr;
 	}
+    
+    	public ArrayList<String> getAllActivities(){
 
-	public ArrayList<String> getAllActivities(){
-
-		Statement s = null;
-		ResultSet rs = null; 
-		ArrayList<String> arr = new ArrayList<String>();
+		arr = new ArrayList<String>();
 
 		java.util.Date date = cal.getTime();
 		String dateCheck = dateFormat.format(date);
 
 		try{
 			s = DatabaseHandler.conn.createStatement();
-			rs = s.executeQuery("SELECT * FROM activity WHERE activityDate >= " + dateCheck + ")");
+			rs = s.executeQuery("SELECT * FROM activity WHERE activityDate >= '" + dateCheck + "';");
 			while(rs.next()){
 				
 				arr.add("Activity ID: "+rs.getString("activityID"));
@@ -138,7 +132,7 @@ public class DatabaseHandler{
 				arr.add("Time: "+rs.getString("activityTime"));
 				arr.add("Date: "+rs.getString("activityDate"));
 				arr.add("Notes: " + rs.getString("activityNote"));
-            	arr.add("______________________________");
+                                arr.add("______________________________");
 
 			}
 		}
@@ -151,14 +145,12 @@ public class DatabaseHandler{
 	}
 
 	public ArrayList<String> getParticipants(String activityID){
-
-		Statement s = null;
-		ResultSet rs = null; 
-		ArrayList<String> arr = new ArrayList<String>();
+                
+                arr = new ArrayList<String>();
 
 		try{
 			s = DatabaseHandler.conn.createStatement();
-			rs = s.executeQuery("SELECT paticipantName FROM participants WHERE activityID = '" + activityID + "'");
+			rs = s.executeQuery("SELECT participantName FROM participants WHERE activityID = '" + activityID + "'");
 			while(rs.next()){
 				arr.add(rs.getString("participantName"));
             	
@@ -173,4 +165,7 @@ public class DatabaseHandler{
 		return arr;
 	}
 
+   /* public boolean loginCheck(String userName, String passWord){
+        
+    }*/
 }

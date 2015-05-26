@@ -7,7 +7,7 @@
 //import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.Arrays;
-import javax.swing.JList; 
+import javax.swing.*; 
 
 /**
  *
@@ -53,13 +53,13 @@ public class MenuMall extends javax.swing.JFrame {
         saveActivityButton = new javax.swing.JButton();
         dateField = new javax.swing.JFormattedTextField();
         wrongInfoLabel = new javax.swing.JLabel();
-        jDialog1 = new javax.swing.JDialog();
         titlePane = new javax.swing.JPanel();
         windowTitle = new javax.swing.JLabel();
         currentTab = new javax.swing.JLabel();
         basePane = new javax.swing.JPanel();
-        upperResultPane = new javax.swing.JPanel();
-        resultPane = new javax.swing.JScrollPane();
+        resultPane = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtArea = new javax.swing.JTextArea();
         buttonMenuPane = new javax.swing.JPanel();
         scheduleButton = new javax.swing.JButton();
         activityButton = new javax.swing.JButton();
@@ -309,17 +309,6 @@ public class MenuMall extends javax.swing.JFrame {
             .addComponent(newActivityPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("InfoSys");
         setResizable(false);
@@ -345,24 +334,22 @@ public class MenuMall extends javax.swing.JFrame {
             .addComponent(currentTab, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        upperResultPane.setForeground(new java.awt.Color(51, 51, 255));
-        upperResultPane.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        resultPane.setForeground(new java.awt.Color(255, 51, 0));
-        resultPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        resultPane.setForeground(new java.awt.Color(51, 51, 255));
         resultPane.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        javax.swing.GroupLayout upperResultPaneLayout = new javax.swing.GroupLayout(upperResultPane);
-        upperResultPane.setLayout(upperResultPaneLayout);
-        upperResultPaneLayout.setHorizontalGroup(
-            upperResultPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(resultPane, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
+        txtArea.setColumns(20);
+        txtArea.setRows(5);
+        jScrollPane2.setViewportView(txtArea);
+
+        javax.swing.GroupLayout resultPaneLayout = new javax.swing.GroupLayout(resultPane);
+        resultPane.setLayout(resultPaneLayout);
+        resultPaneLayout.setHorizontalGroup(
+            resultPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2)
         );
-        upperResultPaneLayout.setVerticalGroup(
-            upperResultPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(upperResultPaneLayout.createSequentialGroup()
-                .addComponent(resultPane, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 22, Short.MAX_VALUE))
+        resultPaneLayout.setVerticalGroup(
+            resultPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2)
         );
 
         scheduleButton.setText("Arbetsschema");
@@ -439,47 +426,42 @@ public class MenuMall extends javax.swing.JFrame {
         buttonMenuPane.setLayout(buttonMenuPaneLayout);
         buttonMenuPaneLayout.setHorizontalGroup(
             buttonMenuPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(activityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(staffRegButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(buttonMenuPaneLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(showButtonsButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(hideButtonsButton)
-                .addGap(20, 20, 20))
-            .addGroup(buttonMenuPaneLayout.createSequentialGroup()
-                .addGroup(buttonMenuPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scheduleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(activityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deptScheduleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(workShiftButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(careButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(staffRegButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(resRegButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(logOut, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(hideButtonsButton))
+            .addComponent(scheduleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(deptScheduleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(workShiftButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(careButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(resRegButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(logOut, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         buttonMenuPaneLayout.setVerticalGroup(
             buttonMenuPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buttonMenuPaneLayout.createSequentialGroup()
                 .addComponent(activityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(11, 11, 11)
                 .addComponent(staffRegButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(buttonMenuPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(11, 11, 11)
+                .addGroup(buttonMenuPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(showButtonsButton)
                     .addComponent(hideButtonsButton))
                 .addGap(10, 10, 10)
                 .addComponent(scheduleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(deptScheduleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(workShiftButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(careButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(resRegButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(logOut, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGap(6, 6, 6)
+                .addComponent(logOut, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         searchButton.setText("Sök");
@@ -543,17 +525,19 @@ public class MenuMall extends javax.swing.JFrame {
             .addGroup(basePaneLayout.createSequentialGroup()
                 .addComponent(buttonMenuPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(basePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(upperResultPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(resultPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bottomPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         basePaneLayout.setVerticalGroup(
             basePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(basePaneLayout.createSequentialGroup()
-                .addGroup(basePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(bottomPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(basePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(upperResultPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(buttonMenuPane, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, 0)
+                .addGroup(basePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(basePaneLayout.createSequentialGroup()
+                        .addComponent(resultPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bottomPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonMenuPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45))
         );
 
@@ -579,10 +563,16 @@ public class MenuMall extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void activityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activityButtonActionPerformed
+        System.out.println("Trycka knapp");
         resultPane.setVisible(true);
         newActivityButton.setVisible(true);
         newStaffButton.setVisible(false);
         currentTab.setText("Aktiviteter");
+        ArrayList<String> activities = new ArrayList();
+        activities = dbh.getAllActivities();
+        printResult(activities);
+        
+        System.out.println("Efter printresult");
     }//GEN-LAST:event_activityButtonActionPerformed
 
     private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
@@ -759,39 +749,22 @@ public class MenuMall extends javax.swing.JFrame {
     }//GEN-LAST:event_showButtonsButtonActionPerformed
     
     public static void printResult(ArrayList<String> listData){
-	JList<String> list = new JList(listData.toArray());
-	resultPane.removeAll();
-        resultPane.add(list);
+	
+        JList<String> list = new JList(listData.toArray());
+	//resultPane = (JPanel) MenuLogin.start.getContentPane(); 
+        for ( String s : listData){
+            System.out.println("Inuti forloop printresult");
+            //txtArea.setText(txtArea.getText() + s);
+            System.out.println(s);
+            txtArea.append(s + System.getProperty("line.separator"));
+        }
+        //resultPane.removeAll();
+        resultPane.add(txtArea);
 	resultPane.updateUI();
+        txtArea.updateUI();
+        //txtArea.setSize(WIDTH, WIDTH);
     }
-  /**  public void centerOnParent(final Window child, final boolean absolute) {
-        child.pack();
-        boolean useChildsOwner = child.getOwner() != null ? ((child.getOwner() instanceof JFrame) || (child.getOwner() instanceof JDialog)) : false;
-        final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        final Dimension parentSize = useChildsOwner ? child.getOwner().getSize() : screenSize ;
-        final Point parentLocationOnScreen = useChildsOwner ? child.getOwner().getLocationOnScreen() : new Point(0,0) ;
-        final Dimension childSize = child.getSize();
-        childSize.width = Math.min(childSize.width, screenSize.width);
-        childSize.height = Math.min(childSize.height, screenSize.height);
-        child.setSize(childSize);        
-        int x;
-        int y;
-        if ((child.getOwner() != null) && child.getOwner().isShowing()) {
-            x = (parentSize.width - childSize.width) / 2;
-            y = (parentSize.height - childSize.height) / 2;
-            x += parentLocationOnScreen.x;
-            y += parentLocationOnScreen.y;
-        } else {
-            x = (screenSize.width - childSize.width) / 2;
-            y = (screenSize.height - childSize.height) / 2;
-        }
-        if (!absolute) {
-            x /= 2;
-            y /= 2;
-        }
-        child.setLocation(x, y);
-    }*/
-    
+    //FIXA OVAN METOD
     String [] arr;
     static DatabaseHandler dbh = new DatabaseHandler();
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -808,7 +781,7 @@ public class MenuMall extends javax.swing.JFrame {
     private javax.swing.JLabel deptLabel;
     private javax.swing.JButton deptScheduleButton;
     private javax.swing.JButton hideButtonsButton;
-    private javax.swing.JDialog jDialog1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton logOut;
     private javax.swing.JTextField nameField;
     private javax.swing.JButton newActivityButton;
@@ -818,7 +791,7 @@ public class MenuMall extends javax.swing.JFrame {
     private java.awt.TextArea notesField;
     private javax.swing.JTextField participantsField;
     private javax.swing.JButton resRegButton;
-    private static javax.swing.JScrollPane resultPane;
+    private static javax.swing.JPanel resultPane;
     private javax.swing.JButton saveActivityButton;
     private javax.swing.JButton saveStaffButton;
     private javax.swing.JButton scheduleButton;
@@ -833,7 +806,7 @@ public class MenuMall extends javax.swing.JFrame {
     private javax.swing.JButton staffRegButton;
     private javax.swing.JFormattedTextField timeField;
     private javax.swing.JPanel titlePane;
-    private javax.swing.JPanel upperResultPane;
+    private static javax.swing.JTextArea txtArea;
     private javax.swing.JLabel windowTitle;
     private javax.swing.JButton workShiftButton;
     private javax.swing.JLabel wrongInfoLabel;
