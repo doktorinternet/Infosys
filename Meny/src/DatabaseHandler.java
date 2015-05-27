@@ -185,21 +185,21 @@ public class DatabaseHandler{
 		return arr;
 	}
 
-	public boolean loginCheck(String userName, String passWord){
+	public String loginCheck(String userName, String passWord){
         Statement s = null;
         ResultSet rs = null;
-        boolean bool = null;
+        String bool = null;
 
         try{
         	s = DatabaseHandler.conn.createStatement();
         	rs = s.executeQuery("SELECT staffUserName, staffPassword FROM staff WHERE staffUserName = " + userName + " AND staffPassword = " + passWord "");
 
-        	if(rs != null){
-        		return true;
+        	if(!rs.next()){
+        		bool = "false";
         	}
 
         	else{
-        		return false;
+        		bool = "true";
         	}
         }
 
@@ -207,7 +207,7 @@ public class DatabaseHandler{
 			System.out.println(se.getMessage());
 		}
 
-		return false;
+		return bool;
 	}
 
 }
