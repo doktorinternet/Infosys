@@ -126,9 +126,11 @@ public class DatabaseHandler{
 	}
     
         public ArrayList<String> getAllActivities(){
-                Statement s = null;
-                ResultSet rs = null;    
-                arr = new ArrayList<String>();
+        
+        Statement s = null;
+        ResultSet rs = null;    
+        arr = new ArrayList<String>();
+        ArrayList<String> participantList = new ArrayList<String>();
 
 		java.util.Date date = cal.getTime();
 		String dateCheck = dateFormat.format(date);
@@ -145,6 +147,14 @@ public class DatabaseHandler{
 				arr.add("Tid: "+rs.getString("activityTime"));
 				arr.add("Datum: "+rs.getString("activityDate"));
 				arr.add("Anteckning: " + rs.getString("activityNote"));
+				arr.add("Deltagare:")
+
+				id = rs.getString("activityID");
+				participantList = MenuMall.dbh.getParticipants(id);
+				for (String str : participantList){
+					arr.add(str);
+				}
+
                 arr.add("______________________________");
 
 			}
