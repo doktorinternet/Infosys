@@ -91,7 +91,7 @@ public class MenuMall extends javax.swing.JFrame {
         newStaffPane.setMaximumSize(new java.awt.Dimension(290, 164));
         newStaffPane.setPreferredSize(new java.awt.Dimension(290, 164));
 
-        saveStaffButton.setText("Registrera ");
+        saveStaffButton.setText("Registrera");
         saveStaffButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveStaffButtonActionPerformed(evt);
@@ -367,7 +367,7 @@ public class MenuMall extends javax.swing.JFrame {
         resultPane.setForeground(new java.awt.Color(51, 51, 255));
         resultPane.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        resultList.setModel(new DefaultListModel<String>());
+        resultList.setModel(listModel);
         jScrollPane1.setViewportView(resultList);
 
         javax.swing.GroupLayout resultPaneLayout = new javax.swing.GroupLayout(resultPane);
@@ -591,7 +591,7 @@ public class MenuMall extends javax.swing.JFrame {
     private void activityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activityButtonActionPerformed
         listModel.removeAllElements();
 		currentTab.setText("Aktiviteter");
-		resultList.removeAll();
+		//resultList.removeAll();
         resultPane.setVisible(true);
         newActivityButton.setVisible(true);
         newStaffButton.setVisible(false);
