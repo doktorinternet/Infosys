@@ -9,12 +9,8 @@ public class DatabaseHandler{
 	static final String DB_URL = "jdbc:sqlite:balder.db";
 	static final String JDBC_DRIVER = "org.sqlite.JDBC";
 	public static Connection conn = null;
-        private Statement s = null;
-        private ResultSet rs = null;
 	public static GregorianCalendar cal = new GregorianCalendar();
 	public SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	private ArrayList<String> arr;
-        static ArrayList<String> participantList;
                 
 	public void initDatabase(){
 
@@ -98,7 +94,7 @@ public class DatabaseHandler{
 	}
 
 	public ArrayList<String> getActivity(String activityID){
-		arr = new ArrayList<String>();
+		ArrayList<String> arr = new ArrayList<String>();
                 Statement s = null;
                 ResultSet rs = null;
 		
@@ -129,7 +125,7 @@ public class DatabaseHandler{
         
         Statement s = null;
         ResultSet rs = null;    
-        arr = new ArrayList<String>();
+        ArrayList<String> arr = new ArrayList<String>();
         ArrayList<String> participantList = new ArrayList<String>();
 
 		java.util.Date date = cal.getTime();
@@ -170,7 +166,7 @@ public class DatabaseHandler{
 	public ArrayList<String> getParticipants(String activityID){
                 Statement s = null;
                 ResultSet rs = null;
-                arr = new ArrayList<String>();
+                ArrayList<String> arr = new ArrayList<String>();
 
 		try{
 			s = DatabaseHandler.conn.createStatement();
