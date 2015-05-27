@@ -28,6 +28,7 @@ public class MenuLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        wrongCredentials = new javax.swing.JOptionPane();
         usernameField = new javax.swing.JTextField();
         userLabel = new javax.swing.JLabel();
         passLabel = new javax.swing.JLabel();
@@ -46,6 +47,11 @@ public class MenuLogin extends javax.swing.JFrame {
         });
 
         userLabel.setText("Användarnamn:");
+        userLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                userLabelMouseClicked(evt);
+            }
+        });
 
         passLabel.setText("Lösenord:");
 
@@ -93,25 +99,27 @@ public class MenuLogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passLabel)
                     .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(closeButton)
                     .addComponent(loginButton))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        String userName, passWord;
-        userName = usernameField.getText();
-        passWord = passwordField.getText();
-        
-        this.setVisible(false);
-        start = new MenuMall();
-        start.setLocationRelativeTo(null);
-        start.setVisible(true);
+        if(MenuMall.dbh.loginCheck(usernameField.getText(), passwordField.getText()).equals("true")){
+            this.setVisible(false);
+            start = new MenuMall();
+            start.setLocationRelativeTo(null);
+            start.setVisible(true);
+        }else{
+            wrongCredentials.showMessageDialog(null, "Felaktig information, " + 
+                    "försök igen", "Felaktig information, försök igen", wrongCredentials.ERROR_MESSAGE);
+        }
+
         
 
     }//GEN-LAST:event_loginButtonActionPerformed
@@ -123,6 +131,13 @@ public class MenuLogin extends javax.swing.JFrame {
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameFieldActionPerformed
+
+    private void userLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userLabelMouseClicked
+            this.setVisible(false);
+            start = new MenuMall();
+            start.setLocationRelativeTo(null);
+            start.setVisible(true);
+    }//GEN-LAST:event_userLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -171,5 +186,6 @@ public class MenuLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel userLabel;
     private javax.swing.JTextField usernameField;
+    private javax.swing.JOptionPane wrongCredentials;
     // End of variables declaration//GEN-END:variables
 }

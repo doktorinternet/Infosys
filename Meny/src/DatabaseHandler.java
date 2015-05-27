@@ -192,7 +192,7 @@ public class DatabaseHandler{
 
         try{
         	s = DatabaseHandler.conn.createStatement();
-        	rs = s.executeQuery("SELECT staffUserName, staffPassword FROM staff WHERE staffUserName = " + userName + " AND staffPassword = " + passWord "");
+        	rs = s.executeQuery("SELECT staffUserName, staffPassword FROM staff WHERE staffUserName = '" + userName + "' AND staffPassword = '" + passWord + "'");
 
         	if(!rs.next()){
         		bool = "false";

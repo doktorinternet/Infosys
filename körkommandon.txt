@@ -1,0 +1,10 @@
+pc 
+javac -cp .;JDBC.jar *.java
+
+java -cp .;JDBC.jar MenuLogin
+
+
+mac
+javac -cp .:JDBC.jar *.java
+
+java -cp .:JDBC.jar MenuLogin.java
