@@ -44,7 +44,8 @@ public class DatabaseHandler{
 	}
 
 	public void addActivity(String activityName, String activityTime, String activityDate, String activityNote){
-		
+                Statement s = null;
+                ResultSet rs = null;
 		String str = "INSERT INTO activity ( activityName, activityTime, activityDate, activityNote) VALUES ('" + activityName + "', '" + activityTime + "', '" + activityDate + "', '" + activityNote + "');";
 		
 		System.out.println(str);
@@ -65,6 +66,9 @@ public class DatabaseHandler{
 
 	public String getActivityID(String activityName, String activityTime, String activityDate){
             String id = null;
+            Statement s = null;
+            ResultSet rs = null;
+            
             try{	
 		s = DatabaseHandler.conn.createStatement();
 		rs = s.executeQuery("SELECT activityID FROM activity WHERE activityName = '" + activityName + "' AND activityTime = '" + activityTime + "' AND activityDate = '" + activityDate + "'");
@@ -79,6 +83,9 @@ public class DatabaseHandler{
 	}
 
 	public void addParticipants(String participantName, String activityID){
+            Statement s = null;
+            ResultSet rs = null;
+            
             try{
 		s = DatabaseHandler.conn.createStatement();
 		s.executeUpdate("INSERT INTO participants (participantName, activityID) VALUES( '" + participantName + "', '" + activityID + "');");
@@ -92,8 +99,10 @@ public class DatabaseHandler{
 
 	public ArrayList<String> getActivity(String activityID){
 		arr = new ArrayList<String>();
-
-		try{
+                Statement s = null;
+                ResultSet rs = null;
+		
+                try{
 			s = DatabaseHandler.conn.createStatement();
 			rs = s.executeQuery("SELECT * FROM activity WHERE activityID = '" + activityID + "';");
 			while(rs.next()){
@@ -117,8 +126,9 @@ public class DatabaseHandler{
 	}
     
         public ArrayList<String> getAllActivities(){
-                
-        arr = new ArrayList<String>();
+                Statement s = null;
+                ResultSet rs = null;    
+                arr = new ArrayList<String>();
 
 		java.util.Date date = cal.getTime();
 		String dateCheck = dateFormat.format(date);
@@ -148,7 +158,8 @@ public class DatabaseHandler{
 	}
 
 	public ArrayList<String> getParticipants(String activityID){
-                
+                Statement s = null;
+                ResultSet rs = null;
                 arr = new ArrayList<String>();
 
 		try{
