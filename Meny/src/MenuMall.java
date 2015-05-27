@@ -48,7 +48,7 @@ public class MenuMall extends javax.swing.JFrame {
         activityFormPopup = new javax.swing.JDialog();
         newActivityPane = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        timeField1 = new javax.swing.JFormattedTextField();
+        timeField = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -57,7 +57,7 @@ public class MenuMall extends javax.swing.JFrame {
         nameField = new javax.swing.JTextField();
         saveActivityButton = new javax.swing.JButton();
         wrongInfoLabel = new javax.swing.JLabel();
-        dateField1 = new javax.swing.JFormattedTextField();
+        dateField = new javax.swing.JFormattedTextField();
         jLabel5 = new javax.swing.JLabel();
         titlePane = new javax.swing.JPanel();
         windowTitle = new javax.swing.JLabel();
@@ -212,7 +212,6 @@ public class MenuMall extends javax.swing.JFrame {
         activityFormPopup.setTitle("Skapa ny användare");
         activityFormPopup.setAlwaysOnTop(true);
         activityFormPopup.setBounds(new java.awt.Rectangle(0, 0, 290, 270));
-        activityFormPopup.setMaximumSize(null);
         activityFormPopup.setMinimumSize(null);
         activityFormPopup.setResizable(false);
         activityFormPopup.setSize(360, 310);
@@ -222,9 +221,9 @@ public class MenuMall extends javax.swing.JFrame {
 
         jLabel1.setText("Datum:");
 
-        timeField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("hh:mm"))));
-        timeField1.setText("hh:mm");
-        timeField1.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        timeField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("hh:mm"))));
+        timeField.setToolTipText("Använd formatet hh:mm");
+        timeField.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
 
         jLabel2.setText("Aktivitetsnamn:");
 
@@ -236,6 +235,11 @@ public class MenuMall extends javax.swing.JFrame {
         participantsField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         participantsField.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         participantsField.setText("Separera varje deltagare med kommatecken");
+        participantsField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                participantsFieldFocusGained(evt);
+            }
+        });
 
         notesField.setColumns(10);
         notesField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -258,9 +262,9 @@ public class MenuMall extends javax.swing.JFrame {
         wrongInfoLabel.setForeground(new java.awt.Color(255, 0, 0));
         wrongInfoLabel.setText("Alla fält skall vara ifyllda!");
 
-        dateField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("d-M-yy"))));
-        dateField1.setText("d-M-yy");
-        dateField1.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        dateField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("d-M-yy"))));
+        dateField.setToolTipText("Använd formatet yyyy-MM-dd");
+        dateField.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
 
         jLabel5.setText("Anteckningar:");
 
@@ -280,7 +284,7 @@ public class MenuMall extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                         .addGroup(newActivityPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(nameField)
-                            .addComponent(dateField1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(newActivityPaneLayout.createSequentialGroup()
                         .addGroup(newActivityPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(newActivityPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -290,7 +294,7 @@ public class MenuMall extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(newActivityPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(notesField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(timeField1)
+                            .addComponent(timeField)
                             .addComponent(participantsField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -304,11 +308,11 @@ public class MenuMall extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(newActivityPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(dateField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(newActivityPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(timeField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(timeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(newActivityPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
@@ -585,11 +589,12 @@ public class MenuMall extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void activityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activityButtonActionPerformed
-        resultList.removeAll();
+        listModel.removeAllElements();
+		currentTab.setText("Aktiviteter");
+		resultList.removeAll();
         resultPane.setVisible(true);
         newActivityButton.setVisible(true);
         newStaffButton.setVisible(false);
-        currentTab.setText("Aktiviteter");
         printResult(dbh.getAllActivities());
     }//GEN-LAST:event_activityButtonActionPerformed
 
@@ -605,61 +610,67 @@ public class MenuMall extends javax.swing.JFrame {
     }      
     
     private void scheduleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scheduleButtonActionPerformed
-        resultPane.setVisible(true);
+        listModel.removeAllElements();
+		resultPane.setVisible(true);
         newActivityButton.setVisible(false);
         newStaffButton.setVisible(false);
         currentTab.setText("Arbetsschema");
     }//GEN-LAST:event_scheduleButtonActionPerformed
 
     private void workShiftButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workShiftButtonActionPerformed
-        resultPane.setVisible(true);
+        listModel.removeAllElements();
+		resultPane.setVisible(true);
         newActivityButton.setVisible(false);
         newStaffButton.setVisible(false);
         currentTab.setText("Arbetspassplan");
     }//GEN-LAST:event_workShiftButtonActionPerformed
 
     private void careButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_careButtonActionPerformed
-        resultPane.setVisible(true);
+        listModel.removeAllElements();
+		resultPane.setVisible(true);
         newActivityButton.setVisible(false);
         newStaffButton.setVisible(false);
         currentTab.setText("Omsorgsåtgärder");
     }//GEN-LAST:event_careButtonActionPerformed
 
     private void staffRegButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_staffRegButtonActionPerformed
-        resultPane.setVisible(true);
+        listModel.removeAllElements();
+		resultPane.setVisible(true);
         newActivityButton.setVisible(false);
         newStaffButton.setVisible(true);
         currentTab.setText("Personalregister");
     }//GEN-LAST:event_staffRegButtonActionPerformed
 
     private void resRegButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resRegButtonActionPerformed
-        resultPane.setVisible(true);
+        listModel.removeAllElements();
+		resultPane.setVisible(true);
         newActivityButton.setVisible(false);
         newStaffButton.setVisible(false);
         currentTab.setText("Boenderegister");
     }//GEN-LAST:event_resRegButtonActionPerformed
 
     private void saveActivityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActivityButtonActionPerformed
+        
         String name, date, time, notes, participants;
         name = nameField.getText();
-        date = dateField1.getText();
-        time = timeField1.getText();
+        date = dateField.getText();
+        time = timeField.getText();
         notes = notesField.getText();
-        participants = notesField.getText();
+        participants = participantsField.getText();
         
         if(name.equals("") || participants.equals("") || time.equals("") || date.equals("")){
+            
             wrongInfoLabel.setVisible(true);
             activityFormPopup.pack();
-        }else{
-            System.out.println("Före addActivity");
+        
+	}else{
+			
             dbh.addActivity(name, time, date, notes);
-            System.out.println("efter addActivity");
             String activityID = dbh.getActivityID(name, time, date);
             ArrayList<String> participantsArr = new ArrayList(
-                Arrays.asList(participants.split(", ")));
+            Arrays.asList(participants.split(", ")));
             for(String s : participantsArr){
                 dbh.addParticipants(s, activityID);
-                System.out.println("inuti participants for-loop");
             }
  
               
@@ -673,6 +684,7 @@ public class MenuMall extends javax.swing.JFrame {
     }//GEN-LAST:event_saveActivityButtonActionPerformed
 
     private void deptScheduleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deptScheduleButtonActionPerformed
+        listModel.removeAllElements();
         resultPane.setVisible(true);
         newActivityButton.setVisible(false);
         newStaffButton.setVisible(false);
@@ -719,6 +731,7 @@ public class MenuMall extends javax.swing.JFrame {
 
     private void newActivityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newActivityButtonActionPerformed
         activityFormPopup.setLocationRelativeTo(null);
+        updateTextFields();
         //activityFormPopup.remove(newActivityPane);
         //activityFormPopup.add(newActivityPane);
         activityFormPopup.setVisible(true);
@@ -773,22 +786,33 @@ public class MenuMall extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void participantsFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_participantsFieldFocusGained
+        participantsField.setText("");
+    }//GEN-LAST:event_participantsFieldFocusGained
    
     public static void printResult(ArrayList<String> listData){
         
-		JList<String> resultList = new JList(listData.toArray());
-		//jScrollPane1.removeAll();
-		jScrollPane1.add(resultList);
-		//jScrollPane1.updateUI();
-		
-        //for ( String s : listData){
-        //    System.out.println(s);
-        //    ((DefaultListModel)resultList.getModel()).addElement(s);
-        //}
+        for (String s : listData){
+            System.out.println(s);
+            //(DefaultListModel)resultList.getModel();
+            listModel.addElement(s);
+        }
     }
+    
+    public static void updateTextFields(){
+        nameField.setText("");
+        dateField.setText("");
+        timeField.setText("");
+        participantsField.setText("Separera deltagare med kommatecken...");
+        notesField.setText("");
+                
+    }
+    
     //FIXA OVAN METOD
     String [] arr;
     static DatabaseHandler dbh = new DatabaseHandler();
+	private static DefaultListModel listModel = new DefaultListModel<String>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel accountTypeLabel;
     private javax.swing.JCheckBox activeCheck;
@@ -799,7 +823,7 @@ public class MenuMall extends javax.swing.JFrame {
     private javax.swing.JPanel buttonMenuPane;
     private javax.swing.JButton careButton;
     private javax.swing.JLabel currentTab;
-    private javax.swing.JFormattedTextField dateField1;
+    private static javax.swing.JFormattedTextField dateField;
     private javax.swing.JLabel deptLabel;
     private javax.swing.JButton deptScheduleButton;
     private javax.swing.JButton hideButtonsButton;
@@ -809,15 +833,15 @@ public class MenuMall extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private static javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton logOut;
-    private javax.swing.JTextField nameField;
+    private static javax.swing.JTextField nameField;
     private javax.swing.JButton newActivityButton;
     private javax.swing.JPanel newActivityPane;
     private javax.swing.JButton newStaffButton;
     private javax.swing.JPanel newStaffPane;
-    private java.awt.TextArea notesField;
-    private java.awt.TextArea participantsField;
+    private static java.awt.TextArea notesField;
+    private static java.awt.TextArea participantsField;
     private javax.swing.JButton resRegButton;
     private static javax.swing.JList resultList;
     private static javax.swing.JPanel resultPane;
@@ -831,7 +855,7 @@ public class MenuMall extends javax.swing.JFrame {
     private javax.swing.JTextField staffNameField;
     private javax.swing.JFormattedTextField staffPhoneField;
     private javax.swing.JButton staffRegButton;
-    private javax.swing.JFormattedTextField timeField1;
+    private static javax.swing.JFormattedTextField timeField;
     private javax.swing.JPanel titlePane;
     private javax.swing.JLabel windowTitle;
     private javax.swing.JButton workShiftButton;
