@@ -585,15 +585,12 @@ public class MenuMall extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void activityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activityButtonActionPerformed
-        System.out.println("Trycka knapp");
+        resultList.removeAll();
         resultPane.setVisible(true);
         newActivityButton.setVisible(true);
         newStaffButton.setVisible(false);
         currentTab.setText("Aktiviteter");
-        ArrayList<String> activities = dbh.getAllActivities();
-        printResult(activities);
-        
-        System.out.println("Efter printresult");
+        printResult(dbh.getAllActivities());
     }//GEN-LAST:event_activityButtonActionPerformed
 
     private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
@@ -778,10 +775,16 @@ public class MenuMall extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
    
     public static void printResult(ArrayList<String> listData){
-        for ( String s : listData){
-            System.out.println(s);
-            ((DefaultListModel)resultList.getModel()).addElement(s);
-        }
+        
+		JList<String> resultList = new JList(listData.toArray());
+		//jScrollPane1.removeAll();
+		jScrollPane1.add(resultList);
+		//jScrollPane1.updateUI();
+		
+        //for ( String s : listData){
+        //    System.out.println(s);
+        //    ((DefaultListModel)resultList.getModel()).addElement(s);
+        //}
     }
     //FIXA OVAN METOD
     String [] arr;
@@ -806,7 +809,7 @@ public class MenuMall extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollPane jScrollPane1;
+    private static javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton logOut;
     private javax.swing.JTextField nameField;
     private javax.swing.JButton newActivityButton;
