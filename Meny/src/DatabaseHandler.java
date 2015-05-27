@@ -185,7 +185,29 @@ public class DatabaseHandler{
 		return arr;
 	}
 
-   /* public boolean loginCheck(String userName, String passWord){
-        
-    }*/
+	public boolean loginCheck(String userName, String passWord){
+        Statement s = null;
+        ResultSet rs = null;
+        boolean bool = null;
+
+        try{
+        	s = DatabaseHandler.conn.createStatement();
+        	rs = s.executeQuery("SELECT staffUserName, staffPassword FROM staff WHERE staffUserName = " + userName + " AND staffPassword = " + passWord "");
+
+        	if(rs != null){
+        		return true;
+        	}
+
+        	else{
+        		return false;
+        	}
+        }
+
+        catch(SQLException se){
+			System.out.println(se.getMessage());
+		}
+
+		return false;
+	}
+
 }
