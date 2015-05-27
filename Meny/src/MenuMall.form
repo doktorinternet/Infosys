@@ -247,7 +247,7 @@
                               <EmptySpace pref="10" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="nameField" max="32767" attributes="0"/>
-                                  <Component id="dateField1" min="-2" pref="215" max="-2" attributes="0"/>
+                                  <Component id="dateField" min="-2" pref="215" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -261,7 +261,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="notesField" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="timeField1" max="32767" attributes="0"/>
+                                  <Component id="timeField" max="32767" attributes="0"/>
                                   <Component id="participantsField" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -281,12 +281,12 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="dateField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="dateField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <Component id="timeField1" min="-2" max="-2" attributes="0"/>
+                          <Component id="timeField" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -313,14 +313,17 @@
                 <Property name="text" type="java.lang.String" value="Datum:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="timeField1">
+            <Component class="javax.swing.JFormattedTextField" name="timeField">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                   <Format format="hh:mm" subtype="-1" type="2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="hh:mm"/>
+                <Property name="toolTipText" type="java.lang.String" value="Anv&#xe4;nd formatet hh:mm"/>
                 <Property name="focusLostBehavior" type="int" value="3"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
@@ -348,8 +351,12 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Separera varje deltagare med kommatecken"/>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="participantsFieldFocusGained"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new java.awt.TextArea(&quot;Separera deltagare med kommatecken&quot;, 0, 10, 3)"/>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
               </AuxValues>
             </Component>
             <Component class="java.awt.TextArea" name="notesField">
@@ -364,6 +371,7 @@
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new java.awt.TextArea(&quot;Anteckningar&quot;, 0, 10, 3)"/>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="nameField">
@@ -373,6 +381,9 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameFieldActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="saveActivityButton">
               <Properties>
@@ -390,14 +401,17 @@
                 <Property name="text" type="java.lang.String" value="Alla f&#xe4;lt skall vara ifyllda!"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="dateField1">
+            <Component class="javax.swing.JFormattedTextField" name="dateField">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                   <Format format="d-M-yy" subtype="-1" type="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="d-M-yy"/>
+                <Property name="toolTipText" type="java.lang.String" value="Anv&#xe4;nd formatet yyyy-MM-dd"/>
                 <Property name="focusLostBehavior" type="int" value="3"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
@@ -552,7 +566,7 @@
                 <Component class="javax.swing.JList" name="resultList">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="new DefaultListModel&lt;String&gt;()" type="code"/>
+                      <Connection code="listModel" type="code"/>
                     </Property>
                   </Properties>
                   <AuxValues>
