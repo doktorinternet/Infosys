@@ -143,7 +143,7 @@ public class DatabaseHandler{
 				arr.add("Tid: "+rs.getString("activityTime"));
 				arr.add("Datum: "+rs.getString("activityDate"));
 				arr.add("Anteckning: " + rs.getString("activityNote"));
-				arr.add("Deltagare:")
+				arr.add("Deltagare:");
 
 				id = rs.getString("activityID");
 				participantList = MenuMall.dbh.getParticipants(id);
