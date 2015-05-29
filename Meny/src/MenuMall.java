@@ -206,7 +206,7 @@ public class MenuMall extends javax.swing.JFrame {
             .addComponent(newStaffPane, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
         );
 
-        activityFormPopup.setTitle("Skapa ny användare");
+        activityFormPopup.setTitle("Skapa ny aktivitet");
         activityFormPopup.setAlwaysOnTop(true);
         activityFormPopup.setBounds(new java.awt.Rectangle(0, 0, 290, 270));
         activityFormPopup.setMinimumSize(null);
